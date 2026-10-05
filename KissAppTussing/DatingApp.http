@@ -1,0 +1,77 @@
+@baseUrl = http://localhost:5000
+@firstToken = paste-first-access-token-here
+@secondToken = paste-second-access-token-here
+@profileId = paste-profile-id-here
+
+### Register the first user
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "email": "alex@example.com",
+  "password": "ExamplePassword123!",
+  "birthDate": "1998-04-12",
+  "bio": "Coffee, books, and weekend hikes."
+}
+
+### Log in
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "alex@example.com",
+  "password": "ExamplePassword123!"
+}
+
+### Discover profiles
+GET {{baseUrl}}/api/profiles/discover?limit=20
+Authorization: Bearer {{firstToken}}
+
+### Get my profile
+GET {{baseUrl}}/api/profiles/me
+Authorization: Bearer {{firstToken}}
+
+### Update my profile
+PUT {{baseUrl}}/api/profiles/me
+Authorization: Bearer {{firstToken}}
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "birthDate": "1998-04-12",
+  "bio": "Updated profile introduction."
+}
+
+### Like a profile (a mutual like creates a match)
+POST {{baseUrl}}/api/swipes
+Authorization: Bearer {{firstToken}}
+Content-Type: application/json
+
+{
+  "targetUserId": "{{profileId}}",
+  "isLike": true
+}
+
+### Pass on a profile
+POST {{baseUrl}}/api/swipes
+Authorization: Bearer {{firstToken}}
+Content-Type: application/json
+
+{
+  "targetUserId": "{{profileId}}",
+  "isLike": false
+}
+
+### List matches
+GET {{baseUrl}}/api/matches
+Authorization: Bearer {{firstToken}}
+
+### Invalid login returns 401
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "alex@example.com",
+  "password": "wrong-password"
+}

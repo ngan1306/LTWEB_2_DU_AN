@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b3826">
+  <meta name="description" content="Kiss - kết nối và hẹn hò.">
+  <title>Kiss | Đăng nhập</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="auth-layout">
+    <section class="auth-story" aria-label="Giới thiệu Kiss">
+      <img class="auth-reference" src="/images/kiss-auth-reference.png" alt="Kiss: Biết đâu, cuộc gặp hôm nay lại là khởi đầu của một câu chuyện đáng nhớ. Minh họa đôi môi đỏ và hoa với dòng chữ Kisses for you.">
+    </section>
+
+    <section class="auth-panel" aria-labelledby="auth-title">
+      <header class="auth-heading">
+        <a class="mobile-brand" href="/" aria-label="Kiss trang chủ"><span class="brand-mark">k</span><span>kiss</span></a>
+        <p class="eyebrow" id="auth-kicker">RẤT VUI ĐƯỢC GẶP LẠI</p>
+        <h1 id="auth-title">Chào bạn.</h1>
+        <p class="auth-subtitle" id="auth-subtitle">Đăng nhập để tiếp tục hành trình gặp gỡ.</p>
+      </header>
+
+      <div class="auth-tabs" role="tablist" aria-label="Tài khoản">
+        <button class="auth-tab is-active" id="login-tab" type="button" role="tab" aria-selected="true">Đăng nhập</button>
+        <button class="auth-tab" id="register-tab" type="button" role="tab" aria-selected="false">Tạo tài khoản</button>
+      </div>
+
+      <form id="auth-form" class="form-stack">
+        <label class="field" id="name-field" hidden>
+          <span>Tên hiển thị</span>
+          <input name="name" type="text" autocomplete="name" minlength="2" maxlength="80" placeholder="Tên bạn muốn mọi người gọi" disabled>
+        </label>
+        <label class="field">
+          <span>Email</span>
+          <input name="email" type="email" autocomplete="email" maxlength="254" placeholder="ban@email.com" required>
+        </label>
+        <label class="field">
+          <span>Mật khẩu</span>
+          <input name="password" type="password" autocomplete="current-password" minlength="8" maxlength="128" placeholder="Ít nhất 8 ký tự" required>
+        </label>
+        <label class="field" id="birth-field" hidden>
+          <span>Ngày sinh <small>Chỉ dành cho người từ 18 tuổi</small></span>
+          <input name="birthDate" type="date" autocomplete="bday" disabled>
+        </label>
+        <p class="form-message" id="auth-message" role="status" aria-live="polite" hidden></p>
+        <button class="submit-button" id="auth-submit" type="submit">Đăng nhập <span aria-hidden="true">↗</span></button>
+      </form>
+
+      <p class="auth-legal">Bằng việc tiếp tục, bạn xác nhận mình đã đủ 18 tuổi.</p>
+      <footer class="auth-footer"><span>Kết nối chân thành, bắt đầu từ một lời chào.</span><a href="/openapi/v1.json" target="_blank" rel="noreferrer">API docs ↗</a></footer>
+    </section>
+  </main>
+</body>
+</html>
